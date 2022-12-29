@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" data-provider-thread-count="2">
+	<listeners>
+		<listener
+			class-name="personal.purendra.listener.FrameworkListener" />
+	</listeners>
+	<test thread-count="1" name="Test" parallel="methods">
+		<packages>
+			<package name="personal.purendra.webtestcases" />
+		</packages>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
