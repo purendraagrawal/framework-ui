@@ -2,12 +2,14 @@ package personal.purendra.webtestcases;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import personal.purendra.annotations.FrameworkAnnotation;
 import personal.purendra.pages.HomePage;
 import personal.purendra.pages.LoginPage;
 
 public class OrangeHrmTest extends BaseTest {
 
   @Test(dataProvider = "loginData")
+  @FrameworkAnnotation(authors = {"Purendra"})
   public void loginValid(String username, String password) {
     LoginPage loginObj = new LoginPage();
     HomePage homepage = loginObj.enterUserName(username).enterPassword(password).clickLogin();

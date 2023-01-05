@@ -1,9 +1,7 @@
 package personal.purendra.extentreport;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import personal.purendra.driverutil.DriverManager;
+import personal.purendra.utils.ScreenShotUtils;
 
 public final class ExtentLogger {
 
@@ -24,7 +22,7 @@ public final class ExtentLogger {
   public static void onPass(String message, boolean isScreenshot) {
     if (isScreenshot)
       ExtentManager.getExttest().pass(message,
-          MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshot()).build());
+          MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenShotUtils.takeScreenshot()).build());
     else
       onPass(message);
   }
@@ -32,7 +30,7 @@ public final class ExtentLogger {
   public static void onFail(String message, boolean isScreenshot) {
     if (isScreenshot)
       ExtentManager.getExttest().fail(message,
-          MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshot()).build());
+          MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenShotUtils.takeScreenshot()).build());
     else
       onFail(message);
   }
@@ -40,12 +38,8 @@ public final class ExtentLogger {
   public static void onSkip(String message, boolean isScreenshot) {
     if (isScreenshot)
       ExtentManager.getExttest().skip(message,
-          MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshot()).build());
+          MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenShotUtils.takeScreenshot()).build());
     else
       onSkip(message);
-  }
-
-  private static String takeScreenshot() {
-    return ((TakesScreenshot) DriverManager.getWebDriver()).getScreenshotAs(OutputType.BASE64);
   }
 }

@@ -1,7 +1,7 @@
 package personal.purendra.driverutil;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import personal.purendra.propertiesutil.ReadProperties;
+import personal.purendra.utils.ReadProperties;
 
 public final class Driver {
 

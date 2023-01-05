@@ -29,4 +29,10 @@ public class ExtentReporter {
     }
   }
 
+  public static void addAuthors(String[] authors) {
+    for (String author : authors) {
+      ExtentManager.getExttest().assignAuthor(author);
+    }
+  }
+
 }

@@ -11,7 +11,7 @@ public class BaseTest {
     Driver.initDriver();
   }
 
-  @AfterMethod
+  @AfterMethod(alwaysRun = true)
   public void tearDown() {
     Driver.quitDriver();
   }

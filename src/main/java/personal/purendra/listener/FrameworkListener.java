@@ -5,6 +5,7 @@ import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import personal.purendra.annotations.FrameworkAnnotation;
 import personal.purendra.extentreport.ExtentLogger;
 import personal.purendra.extentreport.ExtentReporter;
 
@@ -24,6 +25,9 @@ public class FrameworkListener implements ISuiteListener, ITestListener {
   @Override
   public void onTestStart(ITestResult result) {
     ExtentReporter.createTest(result.getMethod().getMethodName());
+    ExtentReporter.addAuthors(result.getMethod().getConstructorOrMethod().getMethod()
+        .getAnnotation(FrameworkAnnotation.class)
+        .authors());
   }
 
   @Override
